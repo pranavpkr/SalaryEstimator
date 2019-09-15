@@ -4,6 +4,8 @@ from django.template import loader
 from django.http import HttpResponse
 import matplotlib.pyplot as plt
 from responseapp.edbridg import getData
+import matplotlib
+matplotlib.use('agg')
 from matplotlib import pylab
 from pylab import *
 import PIL, PIL.Image
