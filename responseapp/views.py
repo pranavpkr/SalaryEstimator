@@ -5,7 +5,7 @@ from django.http import HttpResponse
 import matplotlib.pyplot as plt
 from responseapp.edbridg import getData
 import matplotlib
-matplotlib.use('agg')
+matplotlib.use('Agg')
 from matplotlib import pylab
 from pylab import *
 import PIL, PIL.Image
