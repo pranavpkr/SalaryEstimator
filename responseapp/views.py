@@ -3,7 +3,8 @@ from responseapp.forms import MyForm
 from django.template import loader
 from django.http import HttpResponse
 from responseapp.edbridg import getData
-
+import matplotlib
+matplotlib.use('Agg')
 #import matplotlib.pyplot as plt
 #from matplotlib import pylab
 #from pylab import *
