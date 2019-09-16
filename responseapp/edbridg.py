@@ -1,6 +1,4 @@
-import matplotlib
-matplotlib.use('agg')
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
 
 totalgrosserngsMBA = [42000,44554,57426,59723,62112,91086,94729,98519,102459,131070]
@@ -41,7 +39,7 @@ def getData(Investment, Maturity, CashMultiple, InitiailInvstmt,
     BankRate = pow( EdbgRate*Sum/InitiailInvstmt, 1/Maturity)-1
 #    print("BankRate:",BankRate*100 )
     
-    
+    '''
     #For Graph
     try:
         k = (pow(1+BankRate, Maturity)-1)/( BankRate*(pow(1+BankRate, Maturity)))
@@ -63,10 +61,10 @@ def getData(Investment, Maturity, CashMultiple, InitiailInvstmt,
         plt.xticks(pos, Yr)
         plt.title('Payments for Edbrg vs Bank',fontsize=18)
         plt.legend(Legend,bbox_to_anchor=(0.5, -0.18),frameon=False, loc='lower center', ncol=2)
-    except:pass
+    except:pass'''
 #    plt.show()
     
-    return EdbgRate, BankRate, plt
+    return EdbgRate, BankRate#, plt
 
 if __name__ == "__main__":#Inputs
     StartingSalary = 20000

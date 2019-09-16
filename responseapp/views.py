@@ -4,9 +4,7 @@ from django.template import loader
 from django.http import HttpResponse
 import matplotlib.pyplot as plt
 from responseapp.edbridg import getData
-import matplotlib
-matplotlib.use('Agg')
-from matplotlib import pylab
+#from matplotlib import pylab
 from pylab import *
 import PIL, PIL.Image
 from io import BytesIO
@@ -30,12 +28,13 @@ def responseform(request):
 #            if myForm.cleaned_data["Option"] == "CS":
 #                myForm.fields["Maturity"].max_value = 4
 
-            EdbgRate, BankRate, plt = getData(Investment, Maturity, CashMultiple, InitiailInvstmt,
+            EdbgRate, BankRate = getData(Investment, Maturity, CashMultiple, InitiailInvstmt,
                         StartingSalary, InputSalary, Option)
 
             request.POST.__setitem__("ER", EdbgRate*100)
             request.POST.__setitem__("BR", BankRate*100)
             
+            '''
             fig = plt.gcf()
             buf = BytesIO()
 
@@ -48,9 +47,10 @@ def responseform(request):
             uri = 'data:image/png;base64,' + urllib.parse.quote(string)
             args = {'form':myForm, 'image':uri}
             buf.truncate(0)
-
+            '''
 #            return HttpResponse(buffer.getvalue(), content_type="image/png")
-            return render(request, 'responseform.html', args)
+#            return render(request, 'responseform.html', args)
+            return render(request, 'responseform.html', {'form':myForm} )
 
     else:
          form = MyForm()
