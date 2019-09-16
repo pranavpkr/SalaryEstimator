@@ -31,16 +31,16 @@ def getData(Investment, Maturity, CashMultiple, InitiailInvstmt,
         SalaryGrowthRate = 0.1
     else:
         SalaryGrowthRate = 0.03
-    
-    
-    Sum = CalculateSum( StartingSalary, Maturity, CalculateCAGR(Maturity, Option) )
-
-    EdbgRate= CalculateRePortn( StartingSalary, Investment, CashMultiple, Maturity, Option)
-#    print("EdbgRate:", EdbgRate*100 )
-    
-    BankRate = pow( EdbgRate*Sum/InitiailInvstmt, 1/Maturity)-1
-#    print("BankRate:",BankRate*100 )
-    
+    EdbgRate=0; BankRate = 0
+    try:
+        Sum = CalculateSum( StartingSalary, Maturity, CalculateCAGR(Maturity, Option) )
+        
+        EdbgRate= CalculateRePortn( StartingSalary, Investment, CashMultiple, Maturity, Option)
+        #    print("EdbgRate:", EdbgRate*100 )
+        
+        BankRate = pow( EdbgRate*Sum/InitiailInvstmt, 1/Maturity)-1
+        #    print("BankRate:",BankRate*100 )
+    except:pass
     
     #For Graph
     try:
