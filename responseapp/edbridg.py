@@ -1,4 +1,6 @@
-#import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 import numpy as np
 
 totalgrosserngsMBA = [42000,44554,57426,59723,62112,91086,94729,98519,102459,131070]
