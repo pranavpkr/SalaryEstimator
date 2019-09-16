@@ -38,15 +38,15 @@
   left: 1.5%;
 }.square-8 {
   /*ER*/
-  top: 40%; bottom: -15px;
+  top: 38%; bottom: -15px;
   left: 1.5%; right: -20px;
 }.square-9 {
   /*BR*/
-  top: 40%;
+  top: 38%;
   left: 30%;
 }.square-10 {
   /*Calculte Button*/
-  top: 50%; bottom: -15px;
+  top: 45%; bottom: -15px;
   left: 1.5%; right: -20px;
 }.square-11 {
   /*Tution Label*/
@@ -69,8 +69,10 @@
   display: block;
   margin-left: 10%;
   margin-right: auto;
-  margin-top: 28%;
+  margin-top: 22%;
 }
+.maturitymim {top: 18%;left: 8%;}
+.maturitymax {top: 18%;left: 46%;}
 
 .slidecontainer {
   position: absolute;
@@ -87,7 +89,7 @@
   -webkit-appearance: none;
   width: 500px;
   height: 5px;
-  background: #d3d3d3;
+  background: #0000FF;
   outline: none;
   opacity: 0.7;
   -webkit-transition: .2s;
@@ -109,7 +111,7 @@
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
   outline: none;
-  background: #4CAF50;
+  background: #0000FF;
 }
 
 .slider::-moz-range-thumb {
@@ -135,25 +137,26 @@
 
 <label class="square square-13" >5k</label>
 <label class="square square-14" >50k</label>
+<label class="square maturitymim" >2</label>
+<label class="square maturitymax" >10</label>
+<label class="square square-11" >Tution</label>
+<label class="square square-12" >Maturity</label>
 
 <script>
 var slider1 = document.getElementById("inv");
 var slider2 = document.getElementById("mat");
 slider1.oninput = function() {
   document.my_form.Investment.value = this.value;
+  // document.forms.my_form.submit();
 }
 slider2.oninput = function() {
   document.my_form.Maturity.value = this.value;
+  // document.forms.my_form.submit();
 }
-
-document.my_form.Maturity.style.display="none";
-
 </script>
 
 <form action="./" method="post" name="my_form" id="my_form">{% csrf_token %}
-    <label class="square square-11" >Tution</label>
     <p class="square square-1" >{{form.Investment}}</p>
-    <label class="square square-12" >Maturity</label>
     <p class="square square-2" >{{form.Maturity}}</p>
     <p class="square square-3" >Initial Salary:{{form.StartingSalary}}</p>
     <p class="square square-4" >Initial Investment: {{form.InitiailInvstmt}}</p>
@@ -164,7 +167,7 @@ document.my_form.Maturity.style.display="none";
     <p class="square square-9" >Bank Rate: {{form.BR}}</p>
 
     <p class="square square-10" ><input type="submit" value="Calculate" /></p>
-    <img src="{{ image }}" height="250" width="400" class="center">
+    <img src="{{ image }}" height="320" width="600" class="center">
 </form>
 
 </body>

@@ -38,6 +38,7 @@ def responseform(request):
             
 
             fig = plt.gcf()
+            fig.set_size_inches(8,4.4, forward=True)
             buf = BytesIO()
 
             fig.savefig(buf, format='png')
