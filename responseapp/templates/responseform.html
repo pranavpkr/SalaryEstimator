@@ -56,6 +56,14 @@
   /*Maturity Label*/
   top: 15%;
   left: 1.5%;
+}.square-13 {
+  /*Tution Label*/
+  top: 11%;
+  left: 8%;
+}.square-14 {
+  /*Tutiony Label Ind*/
+  top: 11%;
+  left: 45%;
 }
 .center {
   display: block;
@@ -116,14 +124,18 @@
 <p style="margin-left: 3em;padding: 0 8em 1em 0;border-width: 2px"></p>
 
 <div class="slidecontainer">
-  <input type="range" min="0" max="100000" value="50000" class="slider" id="inv" step="100">
+  <input type="range" min="5000" max="50000" value="10000" class="slider" id="inv" step="100">
 </div>
 <p style="margin-left: 2.5em;padding: 0 7em 0em 0;border-width: 2px"></p>
 
 <div class="slidecontainer-1">
-  <input type="range" min="0" max="10" value="5" class="slider" id="mat" step="1">
+  <input type="range" min="2" max="10" value="4" class="slider" id="mat" step="1">
 </div>
 <p style="margin-left: 2.5em;padding: 0 7em 0em 0;border-width: 2px"></p>
+
+<label class="square square-13" >5k</label>
+<label class="square square-14" >50k</label>
+
 <script>
 var slider1 = document.getElementById("inv");
 var slider2 = document.getElementById("mat");
