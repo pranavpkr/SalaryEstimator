@@ -2,8 +2,9 @@ from django.shortcuts import render
 from responseapp.forms import MyForm
 from django.template import loader
 from django.http import HttpResponse
-#import matplotlib.pyplot as plt
 from responseapp.edbridg import getData
+
+#import matplotlib.pyplot as plt
 #from matplotlib import pylab
 #from pylab import *
 #import PIL, PIL.Image
