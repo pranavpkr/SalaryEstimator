@@ -4,76 +4,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
-.square {
-  height: 1px;
-  position: absolute;
-}.square-1 {
-/*Tution/Investment*/
-  top: 5%;
-  left: 50%;
-}.square-2 {
-  /*Maturity*/
-  top: 12.5%;
-  left: 50%;
-}
-.square-3 {
-  /*StartingSalary*/
-  top: 30%; bottom: -15px;
-  left: 1.5%; right: -20px;
-}.square-4 {
-  /*InitiailInvstmt*/
-  top: 30%;
-  left: 30%;
-}.square-5 {
-  /*InputSalary*/
-  top: 22%;
-  left: 30%;
-}.square-6 {
-  /*CashMultiple*/
-  top: 22%;
-  left: 1.5%;
-}.square-7 {
-  /*Option*/
-  top: 0.1%;
-  left: 1.5%;
-}.square-8 {
-  /*ER*/
-  top: 38%; bottom: -15px;
-  left: 1.5%; right: -20px;
-}.square-9 {
-  /*BR*/
-  top: 38%;
-  left: 30%;
-}.square-10 {
-  /*Calculte Button*/
-  top: 45%; bottom: -15px;
-  left: 1.5%; right: -20px;
-}.square-11 {
-  /*Tution Label*/
-  top: 8%; bottom: -15px;
-  left: 1.5%; right: -20px;
-}.square-12 {
-  /*Maturity Label*/
-  top: 15%;
-  left: 1.5%;
-}.square-13 {
-  /*Tution Label*/
-  top: 11%;
-  left: 8%;
-}.square-14 {
-  /*Tutiony Label Ind*/
-  top: 11%;
-  left: 45%;
-}
-.center {
-  display: block;
-  margin-left: 10%;
-  margin-right: auto;
-  margin-top: 22%;
-}
-.maturitymim {top: 18%;left: 8%;}
-.maturitymax {top: 18%;left: 46%;}
-
 .slidecontainer {
   position: absolute;
   width: 60px;
@@ -120,55 +50,62 @@
   background: #4CAF50;
   cursor: pointer;
 }
+
+.center {
+  display: block;
+  margin-left: 10%;
+  margin-right: auto;
+  margin-top: 40%;
+}
 </style>
 </head>
 <body>
+
 <p style="margin-left: 3em;padding: 0 8em 1em 0;border-width: 2px"></p>
 
-<div class="slidecontainer">
-  <input type="range" min="5000" max="50000" value="10000" class="slider" id="inv" step="100">
+<label style="position: absolute; left: 5%; top: 10%;" >Salary</label>
+<div style="position: absolute; left: 15%; top: 9.5%;">
+  <input type="range" min="1000" max="1000000" value="10000" class="slider" id="sal" step="100">
+  <label style="position: absolute; left: 0%; top: 130%;" >1K</label>
+  <label style="position: absolute; left: 96%; top: 130%;" >1M</label>
 </div>
-<p style="margin-left: 2.5em;padding: 0 7em 0em 0;border-width: 2px"></p>
 
-<div class="slidecontainer-1">
-  <input type="range" min="2" max="10" value="4" class="slider" id="mat" step="1">
+
+<label style="position: absolute; left: 5%; top: 20%;" >Tenure</label>
+<div style="position: absolute; left: 15%; top: 19.5%;">
+  <input type="range" min="1" max="30" value="3" class="slider" id="tenure" step="1">
+  <label style="position: absolute; left: 0%; top: 130%;" >1</label>
+  <label style="position: absolute; left: 96%; top: 130%;" >30</label>
 </div>
-<p style="margin-left: 2.5em;padding: 0 7em 0em 0;border-width: 2px"></p>
 
-<label class="square square-13" >5k</label>
-<label class="square square-14" >50k</label>
-<label class="square maturitymim" >2</label>
-<label class="square maturitymax" >10</label>
-<label class="square square-11" >Tution</label>
-<label class="square square-12" >Maturity</label>
+<form style="position: absolute; left: 5%; top: 30%;" action="./" method="post" name="my_form" id="my_form">{% csrf_token %}
+  <p class="salary" >Initial Salary:{{form.StartingSalary}}</p>
+  <p class="hike" >Hike: {{form.YearlyHikePercent}}</p>
+  <p class="procy" >Promotion Cycle: {{form.PromotionCycle}}</p>
+  <p class="tenure" >Tenure: {{form.Tenure}}</p>
+
+  <p class="button" ><input type="submit" value="Calculate" /></p>
+</form>
+
+{% if image %}
+<img src="{{ image }}" height="320" width="600" style="position: absolute; left: 10%; top: 77%;">
+{% endif %}
+
 
 <script>
-var slider1 = document.getElementById("inv");
-var slider2 = document.getElementById("mat");
+var slider1 = document.getElementById("sal");
+var slider2 = document.getElementById("tenure");
 slider1.oninput = function() {
-  document.my_form.Investment.value = this.value;
+  document.my_form.StartingSalary.value = this.value;
   // document.forms.my_form.submit();
 }
 slider2.oninput = function() {
-  document.my_form.Maturity.value = this.value;
+  document.my_form.Tenure.value = this.value;
   // document.forms.my_form.submit();
 }
 </script>
 
-<form action="./" method="post" name="my_form" id="my_form">{% csrf_token %}
-    <p class="square square-1" >{{form.Investment}}</p>
-    <p class="square square-2" >{{form.Maturity}}</p>
-    <p class="square square-3" >Initial Salary:{{form.StartingSalary}}</p>
-    <p class="square square-4" >Initial Investment: {{form.InitiailInvstmt}}</p>
-    <p class="square square-5" >Input Salary: {{form.InputSalary}}</p>
-    <p class="square square-6" >Money Multiple{{form.CashMultiple}}</p>
-    <p class="square square-7" >Program {{form.Option}}</p>
-    <p class="square square-8" >Percentage of Salary {{form.ER}}</p>
-    <p class="square square-9" >Bank Rate: {{form.BR}}</p>
 
-    <p class="square square-10" ><input type="submit" value="Calculate" /></p>
-    <img src="{{ image }}" height="320" width="600" class="center">
-</form>
 
 </body>
 </html>
