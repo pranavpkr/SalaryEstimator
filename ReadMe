@@ -1,5 +1,5 @@
 Application is deployed on heroku's cloud services
-[Demo](https://edbrgapp.herokuapp.com/response)
+https://edbrgapp.herokuapp.com/response
 
 Steps for running the app:
     1. Unzip the file DjangoFormsBasics.zip as DjangoFormsBasics folder
@@ -35,5 +35,5 @@ Steps for running the app:
     6. To start the app server run “python  manage.py runserver”.
     7. Open the link “http://localhost:8000/response/” in browser to see the app in action.
 
-## [My other app ](https://whispering-anchorage-36506.herokuapp.com/)
+https://whispering-anchorage-36506.herokuapp.com
 
