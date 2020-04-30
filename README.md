@@ -34,6 +34,3 @@ Steps for running the app:
     5. Run “manage.py” as “python  manage.py migrate” to intialize changes made in the app
     6. To start the app server run “python  manage.py runserver”.
     7. Open the link “http://localhost:8000/response/” in browser to see the app in action.
-
-https://whispering-anchorage-36506.herokuapp.com
-
